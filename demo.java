@@ -1,28 +1,17 @@
-import java.util.Scanner;
-
 public class demo {
 
     public static void main(String[] args) {
-        // Create a Scanner object for taking user input
-        Scanner scanner = new Scanner(System.in);
+        // Check if we have the right number of arguments
+        if (args.length < 3) {
+            System.out.println("Usage: java Calculator <operation> <num1> <num2>");
+            System.out.println("Operations: 1. Addition, 2. Subtraction, 3. Multiplication, 4. Division");
+            return;
+        }
 
-        // Display menu options
-        System.out.println("Simple Calculator");
-        System.out.println("Select operation:");
-        System.out.println("1. Addition");
-        System.out.println("2. Subtraction");
-        System.out.println("3. Multiplication");
-        System.out.println("4. Division");
-        System.out.print("Enter your choice (1-4): ");
-        
-        // Read the user's choice
-        int choice = scanner.nextInt();
-
-        // Ask the user to enter two numbers
-        System.out.print("Enter first number: ");
-        double num1 = scanner.nextDouble();
-        System.out.print("Enter second number: ");
-        double num2 = scanner.nextDouble();
+        // Parse the inputs
+        int choice = Integer.parseInt(args[0]);
+        double num1 = Double.parseDouble(args[1]);
+        double num2 = Double.parseDouble(args[2]);
 
         // Perform the operation based on the user's choice
         double result = 0;
@@ -51,8 +40,7 @@ public class demo {
             default:
                 System.out.println("Invalid input! Please select a valid operation (1-4).");
         }
-
-        // Close the scanner
-        scanner.close();
     }
 }
+
+       
